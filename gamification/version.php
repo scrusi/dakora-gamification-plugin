@@ -12,7 +12,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$plugin->version  = 2016032303;   // The (date) version of this module + 2 extra digital for daily versions
+$plugin->version  = 2016090100;   // The (date) version of this module + 2 extra digital for daily versions
                                   // This version number is displayed into /admin/forms.php
                                   // TODO: if ever this plugin get branched, the old branch number
                                   // will not be updated to the current date but just incremented. We will
@@ -25,3 +25,5 @@ $plugin->maturity = MATURITY_ALPHA;
 $plugin->dependencies = array(
 	'block_exacomp' => 2016010700 
 	);
+	
+$plugin->component = 'local_gamification';

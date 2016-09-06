@@ -260,6 +260,7 @@ class event_handler {
 		if ($b = self::get_badge($internal_id)) {
 			if (!$b->is_issued($user_id)) {
 				$b->issue($user_id);
+				$b->dateissued=time();
 				return new response('badge',\local_gamification_external::resolve_badge_images($b));
 			} else {
 				return false; //new response('badge',\local_gamification_external::resolve_badge_images($b)); //TODO: change to false;
