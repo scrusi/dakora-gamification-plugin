@@ -100,7 +100,7 @@ class event_handler {
 		if ($DB->count_records_sql($sql,array($USER->id,'grade_set_as_student',$event->descriptor_id,$event->value)) > 1) return false;
 		$responses = new responses();
 		$responses->add( self::update_counter(COUNT_RATE_SELF,$USER->id,'inc'));
-		$responses->add(self::issue_points(50,$USER->id));
+		$responses->add(self::issue_points(25,$USER->id));
 		return $responses;
 		
 	}
