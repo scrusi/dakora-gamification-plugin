@@ -3,6 +3,7 @@ namespace local\gamification;
 require_once($CFG->libdir . "/badgeslib.php");
 require_once("badger.php");
 require_once("responses.php");
+require_once("point_values.php");
 /**
 * Constants for the ids of counters in local_gamification_counters
 * Necessary because Moodle doesn't like text comparisons in the database.
@@ -100,7 +101,7 @@ class event_handler {
 		if ($DB->count_records_sql($sql,array($USER->id,'grade_set_as_student',$event->descriptor_id,$event->value)) > 1) return false;
 		$responses = new responses();
 		$responses->add( self::update_counter(COUNT_RATE_SELF,$USER->id,'inc'));
-		$responses->add(self::issue_points(25,$USER->id));
+		$responses->add(self::issue_points(POINTS_RATE_SELF,$USER->id));
 		return $responses;
 		
 	}
@@ -139,7 +140,7 @@ class event_handler {
 			if ($competencies_gained > 0 && $competencies_gained == $number_of_siblings) {
 				$responses = new responses();
 				$responses->add(self::update_counter(COUNT_CATEGORY_COMPLETE,$event->get_p('relateduserid'),'inc'));
-				$responses->add(self::issue_points(500,$event->get_p('relateduserid')));
+				$responses->add(self::issue_points(POINTS_CATEGORY_COMPLETE,$event->get_p('relateduserid')));
 				$e = new event('category_completed',array('relateduserid'=>$event->get_p('relateduserid'),'descriptorid'=>$descriptor->parentid));
 				self::log_event($e);
 				return $responses;
@@ -155,7 +156,7 @@ class event_handler {
 		// does something when the event is triggered
 		$responses = new responses();
 		$responses->add(self::update_counter(COUNT_ADD_EXAMPLE,$USER->id,'inc'));
-		$responses->add(self::issue_points(50,$USER->id));
+		$responses->add(self::issue_points(POINTS_ADD_EXAMPLE,$USER->id));
 		return $responses;
 	}
 
@@ -166,7 +167,7 @@ class event_handler {
 		// does something when the event is triggered
 		$responses = new responses();
 		$responses->add(self::update_counter(COUNT_SUBMIT_EXAMPLE,$USER->id,'inc'));
-		$responses->add(self::issue_points(100,$USER->id));
+		$responses->add(self::issue_points(POINTS_SUBMIT_EXAMPLE,$USER->id));
 		return $responses;
 		
 	}
@@ -178,7 +179,7 @@ class event_handler {
 		if ($self_grade && $self_grade->value == $event->value) {
 			$responses = new responses();
 			$responses->add(self::update_counter(COUNT_CORRECT_RATING,$event->get_p('relateduserid'),'inc'));
-			$responses->add(self::issue_points(100,$event->get_p('relateduserid')));
+			$responses->add(self::issue_points(POINTS_CORRECT_RATING,$event->get_p('relateduserid')));
 			return $responses;
 		}
 
