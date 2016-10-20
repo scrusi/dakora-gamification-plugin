@@ -12,7 +12,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$plugin->version  = 2016090700;   // The (date) version of this module + 2 extra digital for daily versions
+$plugin->version  = 2016102000;   // The (date) version of this module + 2 extra digital for daily versions
                                   // This version number is displayed into /admin/forms.php
                                   // TODO: if ever this plugin get branched, the old branch number
                                   // will not be updated to the current date but just incremented. We will
@@ -20,7 +20,7 @@ $plugin->version  = 2016090700;   // The (date) version of this module + 2 extra
                                   // display this version number with userdate (dev friendly)
 $plugin->requires = 2010112400;  // Requires this Moodle version - at least 2.0
 $plugin->cron     = 0;
-$plugin->release = '0.1.00 (Build: 2016090700)';
+$plugin->release = '0.1.01 (Build: 2016102000)';
 $plugin->maturity = MATURITY_BETA;
 $plugin->dependencies = array(
 	'block_exacomp' => 2016010700 
