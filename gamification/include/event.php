@@ -17,7 +17,7 @@ class event {
 		$this->course_id = $this->get_p('courseid');
 		if ($action == 'example_submitted' || $action =='example_added_to_calendar') $this->parameter['descriptorid'] = $this->get_p('exampleid');
 		$this->descriptor_id= $this->get_p('descriptorid');
-
+		$this->created = time();
 		//if ($descriptor_id) $this->descriptor_id=$descriptor_id;
 		if ($value) $this->value=$value;
 		if (method_exists($this, 'process_'.$action)) {
@@ -40,6 +40,7 @@ class event {
 		$record->descriptor_id = $this->get_p('descriptorid');
 		$record->related_user_id = $this->get_p('relateduserid');
 		$record->value = $this->value;
+		$record->created = $this->created;
 		$record->parameter = json_encode($this->parameter);
 		return $record;
 	}

@@ -24,7 +24,7 @@ class responses {
 		} elseif (is_a($r, __NAMESPACE__.'\response')) {
 			$this->responses[] = $r;	
 		} else {
-			echo "that was generic";
+			//echo "that was generic";
 			$this->responses[] = new response('generic',$r);
 		}
 	}

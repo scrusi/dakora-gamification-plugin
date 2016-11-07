@@ -148,6 +148,23 @@ function xmldb_local_gamification_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2016032301, 'local', 'gamification');
     }
 
+    if ($oldversion < 2016110700) {
+
+        // Define field created to be added to local_gamification_log.
+        $table = new xmldb_table('local_gamification_log');
+        $field = new xmldb_field('created', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'parameter');
+
+        // Conditionally launch add field created.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Gamification savepoint reached.
+        upgrade_plugin_savepoint(true, 2016110700, 'local', 'gamification');
+    }
+
+
+
 
 
 
