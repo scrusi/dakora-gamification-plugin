@@ -11,8 +11,8 @@ This is an experimental plugin for Moodle. it adds gamification elements to the 
 ```
 $CFG->gamificationmode = 3; 	// Settings for the gamification plugin.
 			    				// 0 = No visible changes
-							// 1 = Points only
-							// 2 = Badges only
-							// 3 = Points and Badges
-							// Note: 	This is based on a bitmask, allowing for hassle-free addition of binary options.
+								// 1 = Points only
+								// 2 = Badges only
+								// 3 = Points and Badges
+								// Note: 	This is based on a bitmask, allowing for hassle-free addition of binary options.
 ```
