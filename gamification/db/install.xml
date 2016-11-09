@@ -14,6 +14,7 @@
         <FIELD NAME="descriptor_id" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="value" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="parameter" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON string of parameters"/>
+        <FIELD NAME="created" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
